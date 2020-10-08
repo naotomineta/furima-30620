@@ -34,13 +34,13 @@ Things you may want to cover:
   | last_name       | string | null: false |
   | first_name_kana | string | null: false |
   | last_name_kana  | string | null: false |
-  | birthday        | integer | null: false |
+  | birthday        | date   | null: false |
 
   ### Association
 
   - has_many :comments
   - has_many :items
-  - has_many :orders
+  - has_many :managements
 
   ## comments テーブル
 
@@ -57,40 +57,52 @@ Things you may want to cover:
 
   ## items テーブル
 
-  | Column        | Type       | Options     |
-  | ------------  | ------     | ----------  |
-  | product_name  | string     | null: false |
-  | price         | integer    | null: false |
-  | category      | string     | null: false |
-  | user          | references |             |
+  | Column                    | Type       | Options     |
+  | ------------------------- | ------     | ----------  |
+  | product_name              | string     | null: false |
+  | price                     | integer    | null: false |
+  | item_info                 | string     | null: false |
+  | item_sales_status         | string     | null: false |
+  | item_shipping_fee_status  | string     | null: false |
+  | item_prefecture           | string     | null: false |
+  | item_schedule_delivery    | string     | null: false |
+  | category                  | string     | null: false |
+  | user                      | references |             |
   
   ### Association
 
   - belongs_to :user
   - has_many :comments
-  - has_one :order
+  - has_one :management
 
   ## orders テーブル
 
   | Column           | Type       | Options     |
   | --------------   | ------     | ----------  |
-  | card_number      | integer    | null: false |
-  | card_exp_month   | integer    | null: false |
-  | card_cvc         | integer    | null: false |
-  | postal_code      | integer    | null: false |
-  | prefecture       | string     | null: false |
+  | postal_code      | string     | null: false |
+  | prefecture_id    | integer    | null: false |
   | city             | string     | null: false |
   | adresses         | string     | null: false |
-  | building         | string     | null: false |
-  | phone_number     | integer    | null: false |
-  | user             | references |             |
-  | items            | references |             |
+  | building         | string     |             |
+  | phone_number     | string     | null: false |
+  
 
   ### Association
 
   - belongs_to :item
   - belongs_to :user
+  - has_one :management
 
+  ## managements テーブル
+
+  | user             | references |             |
+  | item             | references |             |
+
+  ### Association
+
+  - belongs_to :user
+  - belongs_to :item
+  - belongs_to :order
 
 
 
