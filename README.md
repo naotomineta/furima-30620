@@ -57,17 +57,17 @@ Things you may want to cover:
 
   ## items テーブル
 
-  | Column                    | Type       | Options     |
-  | ------------------------- | ------     | ----------  |
-  | product_name              | string     | null: false |
-  | price                     | integer    | null: false |
-  | item_info                 | string     | null: false |
-  | item_sales_status         | string     | null: false |
-  | item_shipping_fee_status  | string     | null: false |
-  | item_prefecture           | string     | null: false |
-  | item_schedule_delivery    | string     | null: false |
-  | category                  | string     | null: false |
-  | user                      | references |             |
+  | Column                    | Type       | Options          |
+  | ------------------------- | ------     | ----------       |
+  | product_name              | string     | null: false      |
+  | price                     | integer    | null: false      |
+  | item_info                 | integer    | null: false      |
+  | item_sales_status         | integer    | null: false      | 
+  | item_shipping_fee_status  | integer    | null: false      |
+  | item_prefecture           | integer    | null: false      |
+  | item_schedule_delivery    | integer    | null: false      |
+  | category                  | integer    | null: false      |
+  | user                      | references | foreign_key: true|
   
   ### Association
 
@@ -77,14 +77,15 @@ Things you may want to cover:
 
   ## orders テーブル
 
-  | Column           | Type       | Options     |
-  | --------------   | ------     | ----------  |
-  | postal_code      | string     | null: false |
-  | prefecture_id    | integer    | null: false |
-  | city             | string     | null: false |
-  | adresses         | string     | null: false |
-  | building         | string     |             |
-  | phone_number     | string     | null: false |
+  | Column           | Type          | Options     |
+  | --------------   | ------        | ----------  |
+  | postal_code      | string        | null: false |
+  | prefecture_id    | integer       | null: false |
+  | city             | string        | null: false |
+  | adresses         | string        | null: false |
+  | building         | string        |             |
+  | phone_number     | string        | null: false |
+  | management       | references    | foreign_key: true |
   
 
   ### Association
@@ -95,14 +96,16 @@ Things you may want to cover:
 
   ## managements テーブル
 
-  | user             | references |             |
-  | item             | references |             |
+  | Column  | Type       | Options           |
+  | ------  | ------     | ----------------  |
+  | user    | references | foreign_key: true |
+  | item    | references | foreign_key: true |
 
   ### Association
 
   - belongs_to :user
   - belongs_to :item
-  - belongs_to :order
+  - has_one :order
 
 
 
