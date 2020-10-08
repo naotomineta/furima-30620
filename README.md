@@ -57,17 +57,17 @@ Things you may want to cover:
 
   ## items テーブル
 
-  | Column                    | Type       | Options          |
-  | ------------------------- | ------     | ----------       |
-  | product_name              | string     | null: false      |
-  | price                     | integer    | null: false      |
-  | item_info                 | integer    | null: false      |
-  | item_sales_status         | integer    | null: false      | 
-  | item_shipping_fee_status  | integer    | null: false      |
-  | item_prefecture           | integer    | null: false      |
-  | item_schedule_delivery    | integer    | null: false      |
-  | category                  | integer    | null: false      |
-  | user                      | references | foreign_key: true|
+  | Column                       | Type       | Options          |
+  | -------------------------    | ------     | ----------       |
+  | product_name                 | string     | null: false      |
+  | price                        | integer    | null: false      |
+  | item_info                    | text       | null: false      |
+  | item_sales_status_id         | integer    | null: false      | 
+  | item_shipping_fee_status_id  | integer    | null: false      |
+  | item_prefecture_id           | integer    | null: false      |
+  | item_schedule_delivery_id    | integer    | null: false      |
+  | category_id                  | integer    | null: false      |
+  | user                         | references | foreign_key: true|
   
   ### Association
 
