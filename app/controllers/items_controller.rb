@@ -3,4 +3,3 @@ class ItemsController < ApplicationController
     @items
   end
 end
-
