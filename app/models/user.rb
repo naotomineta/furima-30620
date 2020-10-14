@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :comments
+  has_many :items
+  has_many :managements
+  
   zenkaku = /\A[ぁ-んァ-ン一-龥]+\z/
   kananomi = /\A[ァ-ヶー－]+\z/
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
@@ -16,7 +20,5 @@ class User < ApplicationRecord
     validates :birth_date
   end
 
-  has_many :comments
-  has_many :items
-  has_many :managements
+ 
 end
