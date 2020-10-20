@@ -12,11 +12,9 @@ const pay = () => {
       exp_year: `20${document.getElementById("card-exp-year").value}`,
       cvc: document.getElementById("card-cvc").value,
     };
-    console.log(card)
-    // debugger
+  
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
-        console.log(status)
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} name='token' type="hidden">`;
@@ -29,9 +27,7 @@ const pay = () => {
       document.getElementById("card-cvc").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
-      } else {
-        console.log(response.error.message)
-      }
+      }; 
     });
   });
 };
