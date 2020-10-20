@@ -40,11 +40,7 @@ class ItemsController < ApplicationController
     redirect_to action: :index
   end
 
-
-
-  
   private
-
 
   def item_params
     params.require(:item).permit(:name, :price, :info, :sales_status_id, :shipping_fee_status_id, :prefecture_id, :schedule_delivery_id, :category_id, :image).merge(user_id: current_user.id)

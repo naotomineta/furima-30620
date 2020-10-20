@@ -8,6 +8,5 @@ RSpec.describe Order, type: :model do
     end
 
     it 'postal_code,prefecture_id,city,addresses,building,phone_numberがあれば保存できる'
-    
   end
 end
