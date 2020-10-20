@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+
   belongs_to_active_hash :category
   belongs_to_active_hash :sales_status
   belongs_to_active_hash :shipping_fee_status
@@ -7,7 +8,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :schedule_delivery
   belongs_to :user
   has_many :comments
-  has_one :management
+  has_one :managemant
+ 
   has_one_attached :image
 
   with_options presence: true do
